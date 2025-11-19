@@ -1,7 +1,7 @@
 package com.senai.conta_bancaria2.domain.entity;
 
-import com.example.conta_bancaria.domain.exceptions.TransferenciaParaMesmaContaException;
-import com.example.conta_bancaria.domain.exceptions.ValoresNegativoException;
+import com.senai.conta_bancaria2.domain.exceptions.TransferenciaParaMesmaContaException;
+import com.senai.conta_bancaria2.domain.exceptions.ValoresNegativoException;
 import jakarta.persistence.*;
 import lombok.Builder;
 import lombok.Data;

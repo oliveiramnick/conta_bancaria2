@@ -1,11 +1,11 @@
 package com.senai.conta_bancaria2.aplication.service;
 
-import com.example.conta_bancaria.aplication.dto.ClienteRegistroDTO;
-import com.example.conta_bancaria.aplication.dto.ClienteResponseDTO;
-import com.example.conta_bancaria.domain.entity.Cliente;
-import com.example.conta_bancaria.domain.exceptions.ContaMesmoTipoException;
-import com.example.conta_bancaria.domain.exceptions.EntidadeNaoEncontradaException;
-import com.example.conta_bancaria.domain.repository.ClienteRepository;
+import com.senai.conta_bancaria2.aplication.dto.ClienteRegistroDTO;
+import com.senai.conta_bancaria2.aplication.dto.ClienteResponseDTO;
+import com.senai.conta_bancaria2.domain.entity.Cliente;
+import com.senai.conta_bancaria2.domain.exceptions.ContaMesmoTipoException;
+import com.senai.conta_bancaria2.domain.exceptions.EntidadeNaoEncontradaException;
+import com.senai.conta_bancaria2.domain.repository.ClienteRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

@@ -1,10 +1,10 @@
 package com.senai.conta_bancaria2.aplication.service;
 
-import com.example.conta_bancaria.aplication.dto.GerenteDTO;
-import com.example.conta_bancaria.domain.entity.Gerente;
-import com.example.conta_bancaria.domain.enums.Role;
-import com.example.conta_bancaria.domain.exceptions.EntidadeNaoEncontradaException;
-import com.example.conta_bancaria.domain.repository.GerenteRepository;
+import com.senai.conta_bancaria2.aplication.dto.GerenteDTO;
+import com.senai.conta_bancaria2.domain.entity.Gerente;
+import com.senai.conta_bancaria2.domain.enums.Role;
+import com.senai.conta_bancaria2.domain.exceptions.EntidadeNaoEncontradaException;
+import com.senai.conta_bancaria2.domain.repository.GerenteRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.crypto.password.PasswordEncoder;

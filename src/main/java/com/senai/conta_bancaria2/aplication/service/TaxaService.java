@@ -1,8 +1,8 @@
 package com.senai.conta_bancaria2.aplication.service;
 
-import com.example.conta_bancaria.domain.entity.Taxa;
-import com.example.conta_bancaria.domain.entity.TaxaDescricao;
-import com.example.conta_bancaria.domain.repository.TaxaRepository;
+import com.senai.conta_bancaria2.domain.entity.Taxa;
+import com.senai.conta_bancaria2.domain.entity.TaxaDescricao;
+import com.senai.conta_bancaria2.domain.repository.TaxaRepository;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
