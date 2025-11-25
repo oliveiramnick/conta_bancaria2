@@ -21,7 +21,7 @@ public class AuthService {
     public String login(AuthDTO.LoginRequest req) {
         // Busca o usuário pelo e-mail no repositório
         Usuario usuario = usuarios.findByEmail(req.email())
-                .orElseThrow(() -> new UsuarioNaoEncontradoException("Usuário não encontrado"));
+                .orElseThrow(() -> new UsuarioNaoEncontradoException());
 
         // Valida a senha usando o PasswordEncoder
         if (!encoder.matches(req.senha(), usuario.getSenha())) {

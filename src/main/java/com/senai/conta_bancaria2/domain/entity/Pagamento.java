@@ -15,8 +15,8 @@ import java.util.Set;
 @SuperBuilder
 @Table(name="pagamento")
 @DiscriminatorValue("PAGAMENTO")
-
 public class Pagamento {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -24,20 +24,28 @@ public class Pagamento {
     @Column(nullable = false, unique = true)
     private String boleto;
 
-    @Column(nullable = false, unique = true)
+    @Column(nullable = false)
     private LocalDateTime dataPagamento;
 
     @Column(nullable = false)
-    private BigDecimal valorPago;
+    private Double valorPago;
 
     @Column(nullable = false)
     private StatusPagamento status;
 
+    // 💡 CAMPO ATIVO ADICIONADO PARA CORRIGIR O ERRO DE INICIALIZAÇÃO DO JPA
+    @Column(nullable = false)
+    private boolean ativo = true;
+
+    // Associação com a Conta
     @ManyToOne
     @JoinColumn(name = "conta_id", nullable = false)
     private Conta conta;
 
-    @ManyToMany
-    private Set<Taxa> taxa;
+    // Associação ManyToOne com Taxa
+    @ManyToOne
+    @JoinColumn(name = "taxa_id", nullable = true)
+    private Taxa taxa;
 
+    // Métodos de lógica de pagamento podem ser adicionados aqui
 }

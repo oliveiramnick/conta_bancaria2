@@ -3,6 +3,7 @@ package com.senai.conta_bancaria2.aplication.service;
 import com.senai.conta_bancaria2.domain.entity.*;
 import com.senai.conta_bancaria2.domain.repository.*;
 import com.senai.conta_bancaria2.domain.service.PagamentoDomainService;
+import com.senai.conta_bancaria2.domain.service.PagamentoResult;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import java.math.BigDecimal;
