@@ -1,9 +1,9 @@
 package com.senai.conta_bancaria2.aplication.dto;
 
-import com.example.conta_bancaria.domain.entity.Cliente;
-import com.example.conta_bancaria.domain.entity.Conta;
-import com.example.conta_bancaria.domain.entity.ContaCorrente;
-import com.example.conta_bancaria.domain.entity.ContaPoupanca;
+import com.senai.conta_bancaria2.domain.entity.Cliente;
+import com.senai.conta_bancaria2.domain.entity.Conta;
+import com.senai.conta_bancaria2.domain.entity.ContaCorrente;
+import com.senai.conta_bancaria2.domain.entity.ContaPoupanca;
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Pattern;

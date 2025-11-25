@@ -1,7 +1,7 @@
 package com.senai.conta_bancaria2.aplication.dto;
 
-import com.example.conta_bancaria.domain.entity.Gerente;
-import com.example.conta_bancaria.domain.enums.Role;
+import com.senai.conta_bancaria2.domain.entity.Gerente;
+import com.senai.conta_bancaria2.domain.enums.Role;
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
@@ -73,6 +73,7 @@ public record GerenteDTO(
                 .nome(gerente.getNome())
                 .cpf(gerente.getCpf())
                 .email(gerente.getEmail())
+                .senha(gerente.getSenha())
                 .ativo(gerente.isAtivo())
                 .role(gerente.getRole())
                 .build();

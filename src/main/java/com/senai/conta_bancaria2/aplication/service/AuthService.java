@@ -4,7 +4,7 @@ import com.senai.conta_bancaria2.aplication.dto.AuthDTO;
 import com.senai.conta_bancaria2.domain.entity.Usuario;
 import com.senai.conta_bancaria2.domain.exceptions.UsuarioNaoEncontradoException;
 import com.senai.conta_bancaria2.domain.repository.UsuarioRepository;
-import com.example.conta_bancaria.infrastructure.security.JwtService;
+import com.senai.conta_bancaria2.infrastructure.security.JwtService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -13,9 +13,9 @@ import org.springframework.stereotype.Service;
 @Service
 @RequiredArgsConstructor
 public class AuthService {
-    private final UsuarioRepository usuarios;
-    private final PasswordEncoder encoder;
-    private final JwtService jwt;
+    private UsuarioRepository usuarios;
+    private PasswordEncoder encoder;
+    private JwtService jwt;
 
 
     public String login(AuthDTO.LoginRequest req) {

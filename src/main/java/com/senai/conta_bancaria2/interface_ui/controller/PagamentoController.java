@@ -1,6 +1,6 @@
 package com.senai.conta_bancaria2.interface_ui.controller;
 
-import com.senai.conta_bancaria2.domain.service.PagamentoAppService;
+import com.senai.conta_bancaria2.aplication.service.PagamentoAppService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.PostMapping;

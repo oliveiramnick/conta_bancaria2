@@ -1,4 +1,4 @@
-package com.senai.conta_bancaria2.aplication.service;
+package com.senai.conta_bancaria2.domain.service;
 
 import com.senai.conta_bancaria2.domain.entity.Pagamento;
 import com.senai.conta_bancaria2.domain.entity.Taxa;

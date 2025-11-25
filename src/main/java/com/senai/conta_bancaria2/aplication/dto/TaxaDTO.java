@@ -1,7 +1,7 @@
 package com.senai.conta_bancaria2.aplication.dto;
 
-import com.example.conta_bancaria.domain.entity.Taxa;
-import com.example.conta_bancaria.domain.entity.TaxaDescricao;
+import com.senai.conta_bancaria2.domain.entity.Taxa;
+import com.senai.conta_bancaria2.domain.entity.TaxaDescricao;
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.validation.constraints.Digits;
 import jakarta.validation.constraints.NotNull;

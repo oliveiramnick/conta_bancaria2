@@ -31,14 +31,15 @@ public class ContaCorrente extends Conta {
 
     @Override
     public void sacar(BigDecimal valor) {
-        validarValorMAiorQueZero(valor,"saque");
+        validarValorMaiorQueZero(valor,"saque");
 
         BigDecimal custoSaque = valor.multiply(taxa);
         BigDecimal totalSaque = valor.add(custoSaque);
 
-        if (getSaldo().add(limite).compareTo(totalSaque) < 0)
+        if (this.getSaldo().add(this.limite).compareTo(totalSaque) < 0) {
             throw new SaldoInsuficienteException();
+        }
 
-        setSaldo(getSaldo().subtract(totalSaque));
+        this.setSaldo(this.getSaldo().subtract(totalSaque));
     }
 }

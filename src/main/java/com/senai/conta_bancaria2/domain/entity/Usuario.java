@@ -7,13 +7,11 @@ import jakarta.validation.constraints.NotBlank;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 
-@Getter
-@Setter
-@Entity
-@SuperBuilder
-@NoArgsConstructor
+@Data
 @AllArgsConstructor
-@Inheritance(strategy = InheritanceType.JOINED)
+@NoArgsConstructor
+@SuperBuilder
+@Entity
 public abstract class Usuario {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)

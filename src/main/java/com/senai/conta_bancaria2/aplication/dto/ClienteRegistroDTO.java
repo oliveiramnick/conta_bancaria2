@@ -1,15 +1,10 @@
 package com.senai.conta_bancaria2.aplication.dto;
 
-import com.example.conta_bancaria.domain.entity.Cliente;
-import com.example.conta_bancaria.domain.entity.Conta;
-import com.example.conta_bancaria.domain.enums.Role;
+import com.senai.conta_bancaria2.domain.entity.Cliente;
+import com.senai.conta_bancaria2.domain.enums.Role;
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.validation.Valid;
-import org.hibernate.validator.constraints.br.CPF; // Importa a anotação @CPF
 import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
-
-
 import java.util.ArrayList;
 
 @Schema(
@@ -19,12 +14,12 @@ import java.util.ArrayList;
 public record ClienteRegistroDTO(
 
 
-                @Schema(
-                        description = "Nome completo do cliente.",
-                        example = "Maria Oliveira"
-                )
-                @NotBlank(message = "Nome é obrigatório.")
-                        String nome,
+        @Schema(
+                description = "Nome completo do cliente.",
+                example = "Maria Oliveira"
+        )
+        @NotBlank(message = "Nome é obrigatório.")
+        String nome,
 
         @Schema(
                 description = "CPF do cliente (somente números). Deve ser único no sistema.",
@@ -54,9 +49,6 @@ public record ClienteRegistroDTO(
         @Valid
         ContaResumoDTO contaDTO
 ) {
-    /**
-     * Converte o DTO em uma entidade Cliente pronta para persistência no banco de dados.
-     */
     public Cliente toEntity() {
         return Cliente.builder()
                 .ativo(true)

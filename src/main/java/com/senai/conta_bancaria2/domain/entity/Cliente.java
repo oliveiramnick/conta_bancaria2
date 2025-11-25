@@ -20,10 +20,12 @@ import java.util.List;
         name = "cliente",
         uniqueConstraints = @UniqueConstraint(name = "uk_cliente_cpf", columnNames = "cpf")
 )
-public class Cliente extends Usuario{
-
+public class Cliente extends Usuario {
 
     @OneToMany(mappedBy = "cliente", cascade = CascadeType.ALL)
     private List<Conta> contas;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "gerente_id")
+    private Gerente gerente;
 }
