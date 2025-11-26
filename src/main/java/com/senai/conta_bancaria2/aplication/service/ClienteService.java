@@ -15,6 +15,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 
 @Service
+
 @RequiredArgsConstructor
 @Transactional
 public class ClienteService {
@@ -87,4 +88,9 @@ public class ClienteService {
         return ClienteResponseDTO.fromEntity(cliente);
     }
 
+    @Transactional(readOnly = true)
+    public Cliente buscarPorId(String id) {
+        return repository.findByIdAndAtivoTrue(id)
+                .orElseThrow(() -> new EntidadeNaoEncontradaException("Cliente"));
+    }
 }

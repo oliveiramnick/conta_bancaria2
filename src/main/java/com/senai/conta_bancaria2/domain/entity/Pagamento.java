@@ -3,6 +3,8 @@ package com.senai.conta_bancaria2.domain.entity;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 import lombok.experimental.SuperBuilder;
 
 import java.math.BigDecimal;
@@ -11,8 +13,9 @@ import java.util.List;
 import java.util.Set;
 
 @Entity
-@Data
 @SuperBuilder
+@Getter
+@Setter
 @Table(name="pagamento")
 @DiscriminatorValue("PAGAMENTO")
 public class Pagamento {
@@ -28,7 +31,7 @@ public class Pagamento {
     private LocalDateTime dataPagamento;
 
     @Column(nullable = false)
-    private Double valorPago;
+    private BigDecimal valorPago;
 
     @Column(nullable = false)
     private StatusPagamento status;

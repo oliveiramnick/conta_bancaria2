@@ -79,7 +79,7 @@ public class ClienteController {
     public ResponseEntity<ClienteResponseDTO> registrarCliente(
             @Valid @org.springframework.web.bind.annotation.RequestBody ClienteRegistroDTO dto
     ) {
-        ClienteResponseDTO novoCliente = service.registrarClienteOuAnexarConta(dto);
+        ClienteResponseDTO novoCliente = service.registarClienteOuAnexarConta(dto);
         return ResponseEntity.created(
                 URI.create("/api/cliente/cpf/" + novoCliente.cpf())
         ).body(novoCliente);

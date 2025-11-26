@@ -10,7 +10,7 @@ import lombok.Builder;
 import java.math.BigDecimal;
 
 @Schema(
-        name = "TaxasDTO",
+        name = "TaxaDTO",
         description = "DTO para transportar informações de Taxas"
 )
 @Builder
@@ -30,23 +30,23 @@ public record TaxaDTO(
         @Schema(description = "Valor fixo da taxa", example = "20.00")
         @NotNull(message = "O valor fixo não pode ser nulo")
         @Digits(integer = 10, fraction = 2, message = "O valor fixo deve ter até 10 dígitos inteiros e 2 decimais")
-       BigDecimal valorFixo
+        Double valorFixo
 ) {
     public static TaxaDTO fromEntity(Taxa taxas) {
         return TaxaDTO.builder()
-                .id(taxas.getIdTaxa())
+                .id(taxas.getId())
                 .descricao(taxas.getDescricao())
                 .percentual(taxas.getPercentual())
-                .valorFixo(taxas.getValorFixo())
+                .valorFixo(taxas.getValorFixo().doubleValue())
                 .build();
 
     }
     public static TaxaDTO toEntity(Taxa taxas) {
         return TaxaDTO.builder()
-                .id(taxas.getIdTaxa())
+                .id(taxas.getId())
                 .descricao(taxas.getDescricao())
                 .percentual(taxas.getPercentual())
-                .valorFixo(taxas.getValorFixo())
+                .valorFixo(taxas.getValorFixo().doubleValue())
                 .build();
     }
 }

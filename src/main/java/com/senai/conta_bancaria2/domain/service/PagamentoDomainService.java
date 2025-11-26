@@ -7,6 +7,7 @@ import com.senai.conta_bancaria2.domain.entity.Taxa;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.time.LocalDateTime;
 
 @Service
@@ -17,7 +18,7 @@ public class PagamentoDomainService {
             Conta conta,
             String codigoBoleto,
             LocalDateTime vencimentoBoleto,
-            Double valorBoleto,
+            BigDecimal valorBoleto,
             Taxa taxa
     ) {
 
@@ -26,16 +27,14 @@ public class PagamentoDomainService {
             return PagamentoResult.fail("Boleto vencido.");
         }
 
-        // 2 — Calcula o total da taxa (fixo + percentual)
-        BigDecimal taxaPercentual = BigDecimal.valueOf(valorBoleto)
-                .multiply(BigDecimal.valueOf(taxa.getPercentual() / 100));
+        BigDecimal taxaPercentual = BigDecimal.valueOf(valorBoleto.doubleValue())
+                .multiply(taxa.getPercentual().divide(BigDecimal.valueOf(100), 2, RoundingMode.HALF_UP));
 
-        BigDecimal taxaFixa = BigDecimal.valueOf(taxa.getValorFixo());
+        BigDecimal taxaFixa = taxa.getValorFixo(); // taxaFixa já é BigDecimal, sem necessidade de conversão.
 
         BigDecimal totalTaxas = taxaPercentual.add(taxaFixa);
-
         // 3 — Valor total do pagamento
-        BigDecimal valorTotal = BigDecimal.valueOf(valorBoleto).add(totalTaxas);
+        BigDecimal valorTotal = valorBoleto.add(totalTaxas);
 
         // 4 — Valida saldo
         if (conta.getSaldo().compareTo(valorTotal) < 0) {
@@ -46,7 +45,7 @@ public class PagamentoDomainService {
         Pagamento pagamento = Pagamento.builder()
                 .boleto(codigoBoleto)
                 .dataPagamento(LocalDateTime.now())
-                .valorPago(valorTotal.doubleValue())
+                .valorPago(valorTotal)
                 .status(StatusPagamento.SUCESSO)
                 .conta(conta)
                 .taxa(taxa)

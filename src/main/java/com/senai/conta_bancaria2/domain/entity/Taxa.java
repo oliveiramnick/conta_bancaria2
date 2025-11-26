@@ -9,17 +9,14 @@ import java.math.BigDecimal;
 
 @Entity
 @Data
-@SuperBuilder
-@NoArgsConstructor
-@Table(name = "taxa")
 
 public class Taxa {
     @Id
-    @GeneratedValue(strategy = jakarta.persistence.GenerationType.UUID)
-    private String idTaxa;
+    @GeneratedValue(strategy = GenerationType.UUID)
+    private String id;
 
-    @Column (nullable = false, unique = true)
-    @Enumerated (EnumType.STRING)
+    @Column(nullable = false, unique = true)
+    @Enumerated(EnumType.STRING)
     private TaxaDescricao descricao;
 
     @Column(nullable = false)
@@ -28,5 +25,8 @@ public class Taxa {
     @Column(nullable = false)
     private BigDecimal valorFixo;
 
-
+    // Metodo para obter o valor da taxa
+    public BigDecimal getValor() {
+        return valorFixo;
+    }
 }

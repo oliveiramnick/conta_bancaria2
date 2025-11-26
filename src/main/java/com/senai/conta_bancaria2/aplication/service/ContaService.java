@@ -23,6 +23,14 @@ import java.util.List;
 public class ContaService {
     private final ContaRepository repository;
 
+
+    @Transactional(readOnly = true)
+    public Conta buscarPorId(String id) {
+        return repository.findByNumeroAndAtivaTrue(id)
+                .orElseThrow(() -> new EntidadeNaoEncontradaException("Conta"));
+    }
+
+
     @Transactional(readOnly = true)
     public List<ContaResumoDTO> listarTodasContas() {
         return repository.findAllByAtivaTrue().stream()
@@ -93,4 +101,5 @@ public class ContaService {
         }
         throw new RendimentoInvalidoException();
     }
+
 }
