@@ -7,7 +7,5 @@ import java.util.Optional;
 
 public interface TaxaRepository extends JpaRepository<Taxa, String> {
     Optional<Taxa> findByDescricao(String descricao);
-    Optional<Cliente> findAllById(String cpf);
-
-    Optional<Object> findById(Long id);
+    Optional<Taxa> findById(String id);  // Certifique-se de que o tipo aqui seja String, ou o tipo do ID da sua entidade
 }

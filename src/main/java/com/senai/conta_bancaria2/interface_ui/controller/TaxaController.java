@@ -29,7 +29,7 @@ public class TaxaController {
 
     @GetMapping("/{id}")
     @PreAuthorize("hasAnyRole('GERENTE','ADMIN')")
-    public ResponseEntity<Object> buscar(@PathVariable Long id) {
+    public ResponseEntity<Taxa> buscar(@PathVariable String id) {
         return repo.findById(id)
                 .map(ResponseEntity::ok)
                 .orElse(ResponseEntity.notFound().build());

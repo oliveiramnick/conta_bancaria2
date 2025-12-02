@@ -12,7 +12,10 @@ import lombok.experimental.SuperBuilder;
 @NoArgsConstructor
 @SuperBuilder
 @Entity
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn(name = "usuario_tipo", discriminatorType = DiscriminatorType.STRING) // opcional para discriminador
 public abstract class Usuario {
+
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     protected String id;
@@ -40,4 +43,6 @@ public abstract class Usuario {
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
     protected Role role;
+
 }
+

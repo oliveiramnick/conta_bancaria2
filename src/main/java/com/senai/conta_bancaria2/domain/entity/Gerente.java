@@ -10,7 +10,6 @@ import lombok.experimental.SuperBuilder;
 @NoArgsConstructor
 @SuperBuilder
 @Entity
-@Table(name = "gerentes")
 public class Gerente extends Usuario {
 
 }

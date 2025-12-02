@@ -6,8 +6,6 @@ import com.senai.conta_bancaria2.domain.exceptions.PagamentoInvalidoException;
 import com.senai.conta_bancaria2.domain.exceptions.SaldoInsuficienteException;
 import com.senai.conta_bancaria2.domain.repository.*;
 import com.senai.conta_bancaria2.domain.service.PagamentoDomainService;
-
-import com.senai.conta_bancaria2.infrastructure.mqtt.MqttGateway;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -26,7 +24,6 @@ public class PagamentoAppService {
         private final CodigoAutenticacaoRepository codigoRepo;
         private final DispositivoIoTRepository dispositivoRepo;
         private final PagamentoDomainService domainService;
-        private final MqttGateway mqtt;
         private final ContaService contaService;
         private final ClienteService clienteService;
 
@@ -35,7 +32,6 @@ public class PagamentoAppService {
                                    CodigoAutenticacaoRepository codigoRepo,
                                    DispositivoIoTRepository dispositivoRepo,
                                    PagamentoDomainService domainService,
-                                   MqttGateway mqtt,
                                    ContaService contaService,
                                    ClienteService clienteService) {
             this.pagamentoRepository = pagamentoRepository;
@@ -43,7 +39,6 @@ public class PagamentoAppService {
             this.codigoRepo = codigoRepo;
             this.dispositivoRepo = dispositivoRepo;
             this.domainService = domainService;
-            this.mqtt = mqtt;
             this.contaService = contaService;
             this.clienteService = clienteService;
         }
@@ -65,7 +60,6 @@ public class PagamentoAppService {
             codigoRepo.save(auth);
 
             String idClienteTopico = String.valueOf(cliente.getId());
-            mqtt.enviarCodigoAutenticacao(idClienteTopico, codigo);
 
             return auth;
         }
@@ -89,7 +83,6 @@ public class PagamentoAppService {
             codigoRepo.save(ultimo);
 
             String idClienteTopico = String.valueOf(cliente.getId());
-            mqtt.enviarConfirmacaoValidacao(idClienteTopico, codigo);
         }
 
         @Transactional

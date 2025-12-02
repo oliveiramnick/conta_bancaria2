@@ -11,15 +11,11 @@ import lombok.experimental.SuperBuilder;
 
 import java.util.List;
 
-@Entity
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @SuperBuilder
-@Table(
-        name = "cliente",
-        uniqueConstraints = @UniqueConstraint(name = "uk_cliente_cpf", columnNames = "cpf")
-)
+@Entity
 public class Cliente extends Usuario {
 
     @OneToMany(mappedBy = "cliente", cascade = CascadeType.ALL)
